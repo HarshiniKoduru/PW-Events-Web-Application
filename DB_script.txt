@@ -1,0 +1,145 @@
+use PW_EVENTS
+db.connections.drop()
+db.userconnections.drop()
+db.users.drop()
+db.createCollection('connections')
+db.createCollection('userconnections')
+db.createCollection('users')
+db.connections.insert([
+ {
+    userID:'harshi17',
+    connectionID:'FM1',
+    connectionName:'Engagement Party',
+    connectionTopic:'Falcy weds Marshal',
+    details:'This is our first rodeo as future Mr. & Mrs, so put your cowboy boots and hat on and round up with us for a backyard BBQ party',
+    location:'Hosted by Falcy and marshal \n Venue at 220 BARTON CREEK DRIVE!',
+    date:'09.21.2019',
+    time:'11:30 AM',
+    about_event:'As the joy of engagement sneaks upon us, We are inviting you all for the engagement ceremony. Other parties will follow quickly!',
+    image_url:'../assets/images/engage.jpg'
+   },
+ {
+    userID:'sunny123',
+    connectionID:'FM2',
+    connectionName:'Bridal Shower',
+    connectionTopic:'Falcy weds Marshal',
+    details:'Celebrate love with a shower that pays homage to the city of light and love. Witness the decorations and serve up French wines, cheeses, and desserts inspired by paris theme.',
+    location:'Hosted by Falcy and marshal \n venue at 24th  North Tryon street',
+    date:'09.22.2019',
+    time:'5:30 pm',
+    about_event:'Its about the bride, and there is no one quite like her. We are marking the special day and her bright future by planning a fête',
+    image_url:'../assets/images/bridal.jpg'
+   },
+ {
+    userID:'sunny123',
+    connectionID:'FM3',
+    connectionName:'Wedding Cermony',
+    connectionTopic:'Falcy weds Marshal',
+    details:'Hurray! Our wedding theme is RUSTIC!! interesting right? Come and join with us for the wedding. Wedding gonna take place in village halls',
+    location:'Hosted by Falcy and marshal \n Venue at 220 BARTON CREEK DRIVE!',
+    date:'09.23.2019',
+    time:'10:00 AM',
+    about_event:'Wedding day is one of the most important and extraordinary days of our life; Come and witness the festive and enjoyable wedding.',
+    image_url:'../assets/images/mr.jpg'
+   },
+ {
+    userID:'sunny123',
+    connectionID:'BL1',
+    connectionName:'Guest Speech',
+    connectionTopic:'Book Launch Event',
+    details:'An opening speech by our chief guest. He shares his experiences in the writting field and how he had overcome problems.',
+    location:'Hosted by Harshini Koduru, Organized by PW Events \n Speech at Auditorium 3A',
+    date:'12.12.2019',
+    time:'9:30 Am',
+    about_event:'Our Event begins with our Chief guest speech.As he explains the hurdles he faced and some tips for writing a great novel',
+    image_url:'../assets/images/guest.jpg'
+   },
+ {
+    userID:'harshi17',
+    connectionID:'BL2',
+    connectionName:'Author Talk',
+    connectionTopic:'Book Launch Event',
+    details:'Know the story behind writting HOLIDAY HOURS in the words of the author Harshini Koduru.',
+    location:'Hosted by Harshini Koduru, Organized by PW Events \n Venue at the Auditorium 4B which next to refreshments hall',
+    date:'12.12.2019',
+    time:'10:30 AM',
+    about_event:'Attend the Author talk with our Harshini Koduru and know more about her new novel "HOLIDAY HOURS"',
+    image_url:'../assets/images/holiday.jpg'
+   },
+ {
+    userID:'sunny123',
+    connectionID:'BL3',
+    connectionName:'Book Signing Session',
+    connectionTopic:'Book Launch Event',
+    details:'After the event, please drop in for the book signing event and get the first autograph.',
+    location:'Hosted by Harshini Koduru, Organized by PW Events \n Venue near Elevator',
+    date:'12.12.2019',
+    time:'12:00 PM',
+    about_event:'After the event, please drop in for the book signing event and get the first autograph.',
+    image_url:'../assets/images/signing.jpg'
+   }
+])
+
+
+db.users.insert([
+  {
+    userID:'harshi17',
+    firstName:'Harshini',
+    lastName:'Koduru',
+    emailAddress:'hkoduru@uncc.edu',
+    password:'b9241336c4595001e82a3d57b04c59d316371fb048e43a4b2bcb494fde06fd1c2a710f412e3ca4e740e58276df8669de0c6173ce9357591229096a776c8cfa54',
+    salt:'87f5cbc6c8e6a3ac',
+    addressLine1:'220 Barton Creek Drive',
+    addressLine2:'AptF',
+    city:'Charlotte',
+    state:'North Carolina',
+    postalCode:'28262',
+    country:'USA'
+  },
+
+  {
+    userID:'sunny123',
+    firstName:'Surya Tej',
+    lastName:'Koduru',
+    emailAddress:'skoduru@uncc.edu',
+    password:'2a83e0cb4c80dbbd0464a08c71250f20a4f5b5eb3f22cea73d31f86cd7a683ceffe8835f5f3805eeb6fad0568ecdb6daf188770c007c3cf771d273dc68369d77',
+    salt:'9013deaaf5a383b7',
+    addressLine1:'216 Barton Creek Drive',
+    addressLine2:'AptD',
+    city:'Charlotte',
+    state:'North Carolina',
+    postalCode:'28262',
+    country:'USA'
+  }
+])
+db.userconnections.insert([
+    {
+      userID :'sunny123',
+      connectionID:'BL3',
+      rsvp:'YES'
+},
+{
+      userID :'sunny123',
+      connectionID:'BL1',
+      rsvp:'YES'
+    },
+	{
+      userID :'harshi17',
+      connectionID:'BL1',
+      rsvp:'MAYBE'
+},
+    
+{
+      userID :'harshi17',
+      connectionID:'FM1',
+      rsvp:'NO'
+    }
+])
+
+
+Login credentials:
+email:skoduru@uncc.edu
+Password:Sunny@56
+-------------------------------------
+email:hkoduru@uncc.edu
+password:Hkoduru@12
