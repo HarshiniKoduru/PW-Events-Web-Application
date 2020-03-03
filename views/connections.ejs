@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+        <title>PW Connections</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="assets/CSS/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+      <% include partials/navigation.ejs %>
+    
+        <%for(var i=0;i<connTopics.length;i++) {%>
+      <div class="section1">
+
+                <h1 class="HF1, HEADING-FONT2"><%= connTopics[i] %></h1>
+                                <%
+                                  for (var j =0 ; j < data.length; j++)
+                                  { if(data[j].connectionTopic == connTopics[i]){ %>
+                                    <div class="divFM1">
+                                      <img src="assets/Images/<%=data[j].connectionID %>.png">
+                                    <h3><a href="/connection?connectionID=<%=data[j].connectionID %>"><%= data[j].connectionName %></a></h3>
+                                    <p><%= data[j].about_event %></p>
+                                  </div>
+                                    <%	}} %>
+                                  </div>
+                                  <% };  %>
+
+    <% include partials/footer.ejs %>
+    </body>
+
+</html>

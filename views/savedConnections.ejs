@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+        <title>My Connections</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="assets/CSS/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <% include partials/navigation.ejs %>
+<div class="saved">
+  <%if(session){%>
+    <h3>Hello <%=session.firstName%>! We're happy that you are interested in our events. Check your Saved Events here!!!!!</h3>
+    <%}%>
+    <table class="table">
+    <thead><tr>
+        <th>Connection</th>
+        <th>Category</th>
+        <th>Going?</th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+        <% for(var i=0; i< data.UserConsList.length ;i++) { %>
+          <tr>
+        <td><%= data.UserConsList[i].Connection.connectionName %></td>
+        <td><%= data.UserConsList[i].Connection.connectionTopic %></td>
+        <td><%= data.UserConsList[i].rsvp %></td>
+        <td>
+
+          <form method="post" >
+
+                <button class="button" onclick="window.location.href='connection?connectionID=<%= data.UserConsList[i].Connection.connectionID %>'" type="button">UPDATE</button>
+                <button class="button" formaction='/savedConnections?connectionID=<%= data.UserConsList[i].Connection.connectionID%>'>DELETE </button>
+                <input type ="hidden" name ="action" value="DELETE"/>
+
+          </form>
+          </td>
+    </tr>
+    <% } %>
+    </tbody>
+    </table>
+    </div>
+    <% include partials/footer.ejs %>
+    </body>
+
+</html>

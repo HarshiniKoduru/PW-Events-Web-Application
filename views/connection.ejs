@@ -1,0 +1,52 @@
+`<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+        <title>PW Connection Details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="assets/CSS/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <% include partials/navigation.ejs %>
+        <section class="sect21">
+              <h1 class ='HEADING-FONT1'><%= result[0].connectionName %> - Event Information</h1>
+              <%if(modify){%>
+            <form method="post" >
+              <button class="button" onclick="window.location.href='/update?connectionID=<%=result[0].connectionID %>'" type="button">Update</button>
+              <button class="button" formaction="/delete?connectionID=<%=result[0].connectionID %>" > Remove</button>
+            </form>
+           <%}%>
+              <div class="block_2 image_div">
+                  <img src="<%= result[0].image_url %>" alt="<%= result[0].connectionName %>">
+                  <div class="details_div">
+                    <p class="block_2"><strong>LOCATION : <br/></strong><%= result[0].location %></p>
+                    <p class="block_2"><strong>DATE : <br/></strong><%= result[0].date %></p>
+                    <p class="block_2"><strong>TIME : <br/></strong><%= result[0].time %></p>
+                    <br>
+                </div>
+            </div>
+
+        <h2 class="HEADING-FONT1">Ready to witness <IMG class='heart' SRC='assets/Images/hhh.png' alt="hh"></h2>
+          <%if(session){%>
+          <form method="post">
+            <button class="button"  value="YES" formaction= "/savedConnections?connectionID=<%=result[0].connectionID %>&rsvp=YES">YES </button>
+            <button class="button"  value="NO" formaction= "/savedConnections?connectionID=<%=result[0].connectionID %>&rsvp=NO">NO </button>
+            <button class="button"  value="MAYBE" formaction= "/savedConnections?connectionID=<%=result[0].connectionID %>&rsvp=MAYBE">MAY BE </button>
+            <input type="hidden" name ="action" value= "save">
+          </form>
+          <%}else{%>
+            <button class="button"  onclick= "/connection?connectionID=<%=result[0].connectionID %>">YES </button>
+            <button class="button"  onclick= "/connection?connectionID=<%=result[0].connectionID %>">NO </button>
+            <button class="button"  onclick= "/connection?connectionID=<%=result[0].connectionID %>">MAY BE </button>
+              <%}%>
+</section>
+        <section>
+            <h1 class="HEADING-FONT1">DETAILS</h1>
+         <p class="font3"><%= result[0].details %></p>
+
+    </section>
+    <% include partials/footer.ejs %>
+    </body>
+</html>

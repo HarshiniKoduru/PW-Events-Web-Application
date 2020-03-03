@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+        <title>Update Connection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="assets/CSS/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <% include partials/navigation.ejs %>
+
+
+<div class="form_css">
+  <form id="newConnection-form" method="POST" action="update">
+  <h1>Update your Connection</h1>
+    <%   if(error){
+       error.forEach(function(item){%>
+           <p class="error-info"><%=item.msg %></p>
+           <%});} %>
+
+    <div class="row">
+      <div class="column1">
+         <label for="topic">Topic</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="topic" name="topic" value="<%= result[0].connectionTopic%>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="name">Name</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="name" name="name" value="<%= result[0].connectionName%>">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column1">
+        <label for="details">Details</label>
+      </div>
+      <div class="column2">
+        <textarea id="details" name="details" value ="<%= result[0].details %>"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="location">Where</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="location" name="location" value ="<%= result[0].location %>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="date">Date</label>
+      </div>
+      <div class="column2">
+        <input type="date" id="date" name="date" value ="<%=result[0].date %>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="time">Time</label>
+      </div>
+      <div class="column2">
+        <input type="time" id="time" name="time" placeholder="Time of your event">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="about">About Event</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="about" name="about" placeholder="About your event">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="image">Your Event Image url</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="image" name="image" placeholder="Image url event">
+      </div>
+    </div>
+    <input id="connectionID" type ="hidden" name="connectionID" value="<%= result[0].connectionID%>">
+    <div class="row">
+      <input type="submit" value="Create Connection">
+    </div>
+  </form>
+</div>
+    <% include partials/footer.ejs %>
+</body>
+</html>

@@ -1,0 +1,35 @@
+ <header>
+    <div class="index-head">
+      <% if(session){%>
+    <a href="/index"><img src='assets/Images/pw.jpg' alt="pw"></a>
+      <nav>
+            <ul>
+      <li><a href="newConnection">CREATE NEW EVENT?</a></li>
+                <li><a href="/signout">Logout</a></li>
+                <li><a  href="savedConnections">My Events</a></li>
+            </ul>
+        </nav>
+        <div class="left_men">
+        <p><a href="connections"><strong>EVENTS</strong></a></p>
+        </div>
+        <div class="right_men">
+          <p><a  href="#">  Welcome <%=session.firstName%></a></p>
+        </div>
+
+    <% }else{%>
+
+      <a href="/index"><img src='assets/Images/pw.jpg' alt="pw"></a>
+        <nav>
+              <ul>
+        <li><a href="newConnection">CREATE NEW EVENT?</a></li>
+                  <li><a href="/login">LOGIN</a></li>
+                  <li><a href="/signup">NEW USER?SIGN UP</a></li>
+              </ul>
+          </nav>
+          <div class="left_men">
+          <p><a href="connections"><strong>EVENTS</strong></a></p>
+          </div>
+            <% }%>
+            </div>
+
+</header>

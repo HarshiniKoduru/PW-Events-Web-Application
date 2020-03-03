@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+        <title>New Event</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="assets/CSS/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <% include partials/navigation.ejs %>
+
+
+<div class="form_css">
+  <form id="newConnection-form" method="POST" action="newConnection">
+    <h1>Fill the form to create New Event</h1>
+    <%   if(error){
+       error.forEach(function(item){%>
+           <p class="error-info"><%=item.msg %></p>
+           <%});} %>
+           <%if(notlogin){%>
+             <p style="color:red;">Please login to create a new connection.</p>
+           <%}%>
+
+          <div class="row">
+             <div class="column1">
+                <label for="connectionID">Connection ID</label>
+             </div>
+             <div class="column2">
+               <input type="text" id="connectionID" name="connectionID" placeholder="Your connectionID..">
+             </div>
+           </div>
+    <div class="row">
+      <div class="column1">
+         <label for="topic">Topic</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="topic" name="topic" placeholder="Your Topic..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="name">Name</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="name" name="name" placeholder="Your connection name..">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column1">
+        <label for="details">Details</label>
+      </div>
+      <div class="column2">
+        <textarea id="details" name="details" placeholder="Description"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="location">Where</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="location" name="location" placeholder="Where is your event">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="date">Date</label>
+      </div>
+      <div class="column2">
+        <input type="date" id="date" name="date" placeholder="When is your event">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="time">Time</label>
+      </div>
+      <div class="column2">
+        <input type="time" id="time" name="time" placeholder="Time of your event">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="about">About Event</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="about" name="about" placeholder="About your event">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column1">
+        <label for="image">Your Event Image url</label>
+      </div>
+      <div class="column2">
+        <input type="text" id="image" name="image" placeholder="Image url event">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Create Connection">
+    </div>
+  </form>
+</div>
+
+        <% include partials/footer.ejs %>
+</body>
+</html>
